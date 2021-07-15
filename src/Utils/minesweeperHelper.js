@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import { randomizeIntInclusive } from './randomize';
 
 const getNumOfBombsAround = (arr, indexOfArr, fieldWidth) => {
@@ -34,6 +36,7 @@ export const createInitialCells = (length, numOfBombs, fieldWidth) => {
       numOfBombsAround: 0,
       isClose: true,
       isFlag: false,
+      id: uuidv4(),
     });
   };
   for (let i = 0; i < numOfBombs;) {
@@ -48,3 +51,12 @@ export const createInitialCells = (length, numOfBombs, fieldWidth) => {
   }
   return result;
 };
+
+export const openAllCell = (arr) => {
+  return arr.map((cell) => ({
+    ...cell,
+    isClose: false,
+    isFlag: false,
+  }));
+
+}

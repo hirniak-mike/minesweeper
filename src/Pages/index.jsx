@@ -1,1 +1,1 @@
-export { default as Minesweeper } from './Minesweeper';
+export { default as MinesweeperPage } from './MinesweeperPage';

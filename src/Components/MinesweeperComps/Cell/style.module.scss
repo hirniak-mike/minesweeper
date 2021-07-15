@@ -1,0 +1,28 @@
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: white;
+  background-color: darkblue;
+  cursor: pointer;
+  &:hover {
+    background-color: blue;
+  }
+  &_open {
+    background-color: blue;
+  }
+  &_gameOver {
+    background-color: red;
+    &:hover {
+      background-color: red;
+    }
+  }
+  &_winner {
+    background-color: green;
+    &:hover {
+      background-color: green;
+    }
+  }
+}

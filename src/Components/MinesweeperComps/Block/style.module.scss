@@ -1,0 +1,15 @@
+.minesweeper_block {
+  border: 3px solid darkslategrey;
+}
+
+.minesweeper_control {
+  padding: 5px;
+}
+
+.minesweeper_field {
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  gap: 3px;
+}
