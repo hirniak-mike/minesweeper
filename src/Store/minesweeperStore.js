@@ -1,23 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { makeAutoObservable } from 'mobx';
 
 import { createInitialCells } from '../Utils/minesweeperHelper';
 
-const initialSetting = {
-  numOfCells: 36,
-  numOfBomb: 10,
-  fieldWidth: 6,
+export class MinesweeperStore {
+  constructor() {
+    makeAutoObservable(this);
+  };
+
+  numOfCells = 36;
+  numOfBomb = 10;
+  fieldWidth = 6;
+
+  arrOfCells = [...createInitialCells(this.numOfCells, this.numOfBomb, this.fieldWidth)];
+
 };
 
-const minesweeperSlice = createSlice({
-  name: 'minesweeperSlice',
-  initialState: {
-    numOfCells: initialSetting.numOfCells,
-    numOfBomb: initialSetting.numOfBomb,
-    fieldWidth: initialSetting.fieldWidth,
-    arrOfCells: [...createInitialCells(initialSetting.numOfCells, initialSetting.numOfBomb, initialSetting.fieldWidth)],
-  },
-  reducers: {
-  }
-});
-
-export default minesweeperSlice.reducer;
+export const minesweeperStore = new MinesweeperStore();

@@ -1,15 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { inject } from 'mobx-react';
 
 import s from './style.module.scss';
 
-const Minesweeper = () => {
-  const { arrOfCells } = useSelector(({ minesweeperSlice }) => {
-    return {
-      arrOfCells: minesweeperSlice.arrOfCells,
-    };
-  });
-  console.log(arrOfCells);
+const Minesweeper = ({ minesweeperStore }) => {
+  console.log('minesweeperStore: ', minesweeperStore);
 
   return (
     <div className={s.minesweeper}>
@@ -18,4 +13,4 @@ const Minesweeper = () => {
   );
 };
 
-export default Minesweeper;
+export default inject('minesweeperStore')(Minesweeper);
